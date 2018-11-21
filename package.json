@@ -1,0 +1,28 @@
+{
+  "name": "@srujalsk/simpleconnect",
+  "version": "0.0.1",
+  "description": "SimpleConnect is a typescript based library which helps you connect to multiple database with single interface without any ORM.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srujalsk/SimpleConnect.git"
+  },
+  "author": "Srujal Sunil Kachhela",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/srujalsk/SimpleConnect/issues"
+  },
+  "homepage": "https://github.com/srujalsk/SimpleConnect#readme",
+  "devDependencies": {
+    "prettier": "^1.15.2",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.16.0",
+    "typescript": "^3.1.6"
+  }
+}
