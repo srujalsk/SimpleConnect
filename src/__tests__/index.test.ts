@@ -1,5 +1,7 @@
-import { Greeter } from '../index';
+import { FSDatabase, QueryExecutor } from '../index';
 
-test('My Greeter', () => {
-  expect(Greeter('Carl')).toBe('Hello Carl');
+test('Is QueryExecutor Exposed in index', () => {
+  const qe = new QueryExecutor();
+  const db = new FSDatabase();
+  expect(qe.ExecuteQuery(db,"Test Query")).toBe(true);
 });
