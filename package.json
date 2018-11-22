@@ -1,6 +1,6 @@
 {
   "name": "@srujalsk/simpleconnect",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "SimpleConnect is a typescript based library which helps you connect to multiple database with single interface without any ORM.",
   "main": "index.js",
   "scripts": {
