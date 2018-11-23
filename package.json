@@ -26,6 +26,7 @@
   "homepage": "https://github.com/srujalsk/SimpleConnect#readme",
   "devDependencies": {
     "@types/jest": "^23.3.9",
+    "@types/node": "^10.12.10",
     "jest": "^23.6.0",
     "prettier": "^1.15.2",
     "ts-jest": "^23.10.4",
