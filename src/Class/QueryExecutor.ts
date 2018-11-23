@@ -23,22 +23,14 @@ export class QueryExecutor implements IQueryExecutor {
      * ExecuteQuery method will execute the provided query on the provided database instance.
      * @param {string} query Pass the Query to be executed on provided database instance.
      */
-    public ExecuteQuery(db:IDatabase, query: string): boolean {
-
+    public ExecuteQuery(db:IDatabase, query: string, result: (data: any) => void, parameters?: any[], error?: string): void {
         let executorInstance = null;
-
-        try {
-
-            if(db instanceof FSDatabase){
-                executorInstance = new FSQueryExecutor();
-                return executorInstance.ExecuteQuery(db,query);
-            }
-            else {
-                return false;
-            }    
-
-        } catch (error) {
-            return false;
+        if(db instanceof FSDatabase) {
+            executorInstance = new FSQueryExecutor();
+            executorInstance.ExecuteQuery(db, query, result, parameters, error);
+        }
+        else {
+            error = "No matching database is found"
         }
     }
     

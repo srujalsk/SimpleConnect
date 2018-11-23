@@ -15,12 +15,9 @@ export class FSQueryExecutor implements IQueryExecutor {
      * ExecuteQuery method will execute the provided query on the provided database instance.
      * @param {string} query Pass the Query to be executed on provided database instance.
      */
-    public ExecuteQuery(db:FSDatabase, query: string): boolean {
-        try {
-            return true;
-        } catch (error) {
-            return false;
-        }
+    public ExecuteQuery(db:FSDatabase, query: string, result: (data: any) => void, parameters?: any[], error?: string): void {
+        result("output");
+        error = "";
     }
     
 }
