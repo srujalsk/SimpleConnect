@@ -1,4 +1,4 @@
-import { IDatabase } from "../../../Interfaces/IDatabase";
+import * as fs from "fs";
 import { IQueryExecutor } from "../../../Interfaces/IQueryExecutor";
 import { FSDatabase } from "./FSDatabase";
 
@@ -15,9 +15,28 @@ export class FSQueryExecutor implements IQueryExecutor {
      * ExecuteQuery method will execute the provided query on the provided database instance.
      * @param {string} query Pass the Query to be executed on provided database instance.
      */
-    public ExecuteQuery(db:FSDatabase, query: string, result: (data: any) => void, parameters?: any[], error?: string): void {
-        result("output");
-        error = "";
+    public ExecuteQuery(db:FSDatabase, query: string, result: (data: any, error?: string | Error) => void, parameters?: any[]): void {
+        try {
+
+            if(query.trim().indexOf(" ") !== -1) {
+                const querySplit = query.toUpperCase().split(" ")
+
+                // Perform action based upon the first value of querySplit
+                switch (querySplit[0]) {
+                    case "GET":
+                        result(fs.readFileSync(db.connectionString).toString());
+                        break;
+                
+                    default:
+                        throw new Error("No Standard Query Action found !");
+                        break;
+                }
+            }
+            else {
+                throw new Error("Invalid query format provided, please refer to the documentation for more information.")
+            }
+        } catch (err) {
+            result(null,err);
+        }
     }
-    
 }

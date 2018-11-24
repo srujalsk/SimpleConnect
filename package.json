@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
+    "debug": "node --debug-brk --inspect ./node_modules/.bin/jest -i",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
