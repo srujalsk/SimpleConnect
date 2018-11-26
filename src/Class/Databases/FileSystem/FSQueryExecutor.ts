@@ -26,6 +26,12 @@ export class FSQueryExecutor implements IQueryExecutor {
                     case "GET":
                         result(fs.readFileSync(db.connectionString).toString());
                         break;
+                    
+                    case "SET":
+                        querySplit.shift();
+                        fs.writeFileSync(db.connectionString,querySplit.join());
+                        result(true);
+                        break;
                 
                     default:
                         throw new Error("No Standard Query Action found !");
