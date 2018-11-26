@@ -19,10 +19,10 @@ export class FSQueryExecutor implements IQueryExecutor {
         try {
 
             if(query.trim() !== "") {
-                const querySplit = query.toUpperCase().split(" ")
+                const querySplit = query.split(" ")
 
                 // Perform action based upon the first value of querySplit
-                switch (querySplit[0]) {
+                switch (querySplit[0].toUpperCase()) {
                     case "GET":
                         result(fs.readFileSync(db.connectionString).toString());
                         break;
@@ -40,7 +40,6 @@ export class FSQueryExecutor implements IQueryExecutor {
                         break;
                     
                     case "CLEAR":
-                        querySplit.shift();
                         fs.writeFileSync(db.connectionString, '');
                         result(true);
                         break;
