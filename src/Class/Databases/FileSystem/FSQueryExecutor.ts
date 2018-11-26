@@ -18,7 +18,7 @@ export class FSQueryExecutor implements IQueryExecutor {
     public ExecuteQuery(db:FSDatabase, query: string, result: (data: any, error?: string | Error) => void, parameters?: any[]): void {
         try {
 
-            if(query.trim().indexOf(" ") !== -1) {
+            if(query.trim() !== "") {
                 const querySplit = query.toUpperCase().split(" ")
 
                 // Perform action based upon the first value of querySplit
